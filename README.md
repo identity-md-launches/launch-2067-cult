@@ -69,23 +69,30 @@ The launch factory performs all distribution. The token does not send any alloca
 
 The deployer derives the opening price from the economics and deployed currency ordering. Ethereum mainnet is the order's chain; it is intentionally not a manifest field. The 1.25% pool fee is separate from CULT's 0% transfer tax. No addresses or launch settings were guessed.
 
-Foundry uses Solidity 0.8.26, Cancun, optimizer enabled with 200 runs, and `bytecode_hash = "none"`. It needs no vendored Solidity dependencies. Keep generated artifacts out of the repository when checking:
+The launch operator deploys `CULTToken` through the launch factory with an empty constructor argument list. The factory initially holds all 1e27 units, then sends 100,000,000 CULT to its Merkle distributor, allocates 900,000,000 CULT to pool seeding, and forwards any unspent remainder to the supplied remainder recipient. The token itself never calls the factory, distributor, paired token or PoolManager. Launch distribution and swaps move CULT through ordinary ERC-20 transfers. The operator is responsible for deriving the opening price, pool initialization, liquidity seeding, distribution and source verification. There are no token initialization calls, owner keys, post-launch settings or maintenance transactions.
+
+Foundry uses Solidity 0.8.26, Cancun, optimizer enabled with 200 runs, and `bytecode_hash = "none"`. The existing configuration is preserved. It needs no vendored Solidity dependencies, RPC, credentials or environment reads in tests. Run from the repository root:
 
 ```sh
-FOUNDRY_OUT=/tmp/cult-foundry-out FOUNDRY_CACHE_PATH=/tmp/cult-foundry-cache forge build
-FOUNDRY_OUT=/tmp/cult-foundry-out FOUNDRY_CACHE_PATH=/tmp/cult-foundry-cache FOUNDRY_FUZZ_SEED=0x7d2b41d06c4024c360f343ff5f860a843d9d67bd263b2ae2585892a0557b1377 forge test
+forge build
+FOUNDRY_FUZZ_SEED=0x7d2b41d06c4024c360f343ff5f860a843d9d67bd263b2ae2585892a0557b1377 forge test
+forge fmt --check
 ```
 
-The ten tests cover deployment supply, launch-distribution/PoolManager transfer flows, allowance revocation and atomic failure, events, self/zero transfers, forbidden runtime opcodes, inaccessible privileged selectors, fuzzed round trips and 40-transfer conservation sequences. Each of three fuzz tests runs 1,000 cases with the assignment's seed. The local flow test checks exact token movement; it does not claim to execute Uniswap's swap algorithm. The pinned protected harness was read, but its factory/Uniswap dependencies and attestation inputs are provided by the verifier, not this repository. No mainnet fork, transaction, deployment or signing was performed.
+The original ten tests cover deployment supply, launch-distribution/PoolManager transfer flows, allowance revocation and atomic failure, events, self/zero transfers, forbidden runtime opcodes, inaccessible privileged selectors, fuzzed round trips and 40-transfer conservation sequences. Each of the three existing fuzz tests runs 1,000 cases with the assignment's seed. Three additional deterministic smoke tests in `test/CULTLaunchSmoke.t.sol` check CREATE2 factory deployment and the mint event, a full-supply transfer followed by a rejected overspend, and allowance rollback on a zero-recipient failure followed by a successful spend. No new fuzz or invariant suite was added.
+
+The local flow test checks exact token movement; it does not execute Uniswap's swap algorithm. The pinned protected harness was read, but its factory/Uniswap dependencies and attestation inputs are provided by the verifier, not this repository. The launch network's independent checks remain responsible for the actual factory, Merkle distributor and v4 pool integration. No mainnet fork, transaction, deployment or signing was performed.
 
 ## Validation and design
 
 Actual validation results, repaired findings, brief coverage, and explicit limits are in [artifacts/validation.md](artifacts/validation.md). [DESIGN.md](DESIGN.md) describes the final implemented design system. [artifacts/creative-brief.txt](artifacts/creative-brief.txt) preserves the full brief fetched for this assignment.
 
-The production export and strict JavaScript typecheck passed. The Foundry suite passed all 10 tests, including 3,000 fuzz cases. Chromium exercised the primary interactions, all eight PNG downloads, malformed/failed/live feed states, reduced motion, 320–1920px reflow, 200% text enlargement and both pages. The axe WCAG AA scan found no violations. The design probe passed 14/16 checks; its two exceptions preserve the explicitly required scrolling marquee and exact authored em-dash copy. WebKit could not start because system libraries are absent; native Safari, physical devices, screen readers and real clipboard permission prompts remain unverified. The browser suite tests clipboard success with a stub; manual fallback remains available.
+The Foundry build, all 13 tests (including the existing 3,000 fuzz cases with the required seed), and formatting check passed for the token assignment. The following website results are retained from the earlier accepted contribution; the site was not changed or revalidated in the token assignment. The production export and strict JavaScript typecheck passed. Chromium exercised the primary interactions, all eight PNG downloads, malformed/failed/live feed states, reduced motion, 320–1920px reflow, 200% text enlargement and both pages. The axe WCAG AA scan found no violations. The design probe passed 14/16 checks; its two exceptions preserve the explicitly required scrolling marquee and exact authored em-dash copy. WebKit could not start because system libraries are absent; native Safari, physical devices, screen readers and real clipboard permission prompts remain unverified. The browser suite tests clipboard success with a stub; manual fallback remains available.
 
 ## Attribution
 
 The original Cult logo and all eight SVG scenes were created for this assignment because no prior `logos/` assets were present. Default vector and 512px PNG files are in `logos/` and the website assets.
+
+The token assignment preserves the accepted logo: a bold violet-and-gold eye with two pupils, designed to remain recognizable at 64 px. Cult's supplied story is "The first token to proof cult," chosen by the SIMD Swarm Council in round 49783 with 2 votes and proposed by @0xMslm. The artwork is fictional branding with no real brands, people or copyrighted characters.
 
 UnifrakturCook, Inter and Space Mono are bundled from Fontsource 5.3.0, with their OFL licenses beside the fonts. Better Interface design guidance by Jakub Krehel (MIT), the Impeccable documentation method by Paul Bakaus (Apache-2.0), and the Foundry testing guide by Austin Griffith (MIT) informed the work. Their supplied license records are retained in `artifacts/licenses/`. These references grant no wallet or deployment authority.
