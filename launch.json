@@ -20,5 +20,5 @@
     "initialMarketCapWei": "2500000000000000000000",
     "remainderTo": "0x000000000000000000000000000000000000dead"
   },
-  "notes": "Fixed supply minted entirely to the deployer; no owner, mint, burn, fee, tax or transfer limit. The launch factory distributes the swarm allocation through its Merkle distributor, seeds Uniswap v4, and forwards any remainder. initialPrice is provenance only; the deployer derives the opening price from the economics and deployed currency order."
+  "notes": "CULTToken takes no constructor arguments and mints 1,000,000,000 CULT with 18 decimals (1000000000000000000000000000 minor units) once, entirely to msg.sender. Name, symbol, decimals and total supply are fixed constants. Transfers follow plain ERC-20 rules with no fee, tax or transfer limit. There are no owner or admin functions, further minting, burning, proxies or upgrades. The token performs no launch distribution. No application contracts are included. pool.initialPrice is provenance only; the deployer derives the opening price from economics.initialMarketCapWei, totalSupply and the deployed currency order."
 }
