@@ -1,0 +1,19 @@
+{
+  "name": "cult-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cult static launch site and verification tooling; no site build or runtime dependency required.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "node scripts/typecheck.mjs",
+    "test:site": "node scripts/test-site.mjs",
+    "preview": "node scripts/preview.mjs",
+    "check:bundle": "node scripts/check-bundle.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "playwright": "1.56.1",
+    "typescript": "5.9.3"
+  }
+}

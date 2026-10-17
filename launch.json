@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "CULTToken",
+    "name": "Cult",
+    "symbol": "CULT",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "125270724187523965593206900"
+  },
+  "economics": {
+    "poolBps": 9000,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x000000000000000000000000000000000000dead"
+  },
+  "notes": "Fixed supply minted entirely to the deployer; no owner, mint, burn, fee, tax or transfer limit. The launch factory distributes the swarm allocation through its Merkle distributor, seeds Uniswap v4, and forwards any remainder. initialPrice is provenance only; the deployer derives the opening price from the economics and deployed currency order."
+}

@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#16141f" />
+    <title>Cult ($CULT) · Only two must believe.</title>
+    <meta
+      name="description"
+      content="The first token to proof cult. Two votes. One billion CULT. Meet the Council of Two, explore the lore, and make your own council relic."
+    />
+    <link rel="canonical" href="https://cult.si-md.xyz/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cult" />
+    <meta property="og:url" content="https://cult.si-md.xyz/" />
+    <meta property="og:title" content="Cult ($CULT) · Only two must believe." />
+    <meta
+      property="og:description"
+      content="Are you one? The first token to proof cult, chosen by two votes in SIMD Swarm Council round 49783."
+    />
+    <meta
+      property="og:image"
+      content="https://cult.si-md.xyz/assets/logos/logo-1.png"
+    />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta
+      property="og:image:alt"
+      content="The Cult gold and violet coin, an eye with two pupils."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Cult ($CULT) · Only two must believe."
+    />
+    <meta
+      name="twitter:description"
+      content="Two votes. Infinite legend. Welcome to the Council of Two."
+    />
+    <meta
+      name="twitter:image"
+      content="https://cult.si-md.xyz/assets/logos/logo-1.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Cult's gold and violet eye-of-two logo."
+    />
+    <link rel="icon" type="image/svg+xml" href="./assets/logos/logo.svg" />
+    <link rel="apple-touch-icon" href="./assets/logos/logo-1.png" />
+    <link
+      rel="preload"
+      href="./assets/fonts/unifrakturcook-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="#" aria-label="Cult home"
+        ><img
+          data-logo
+          src="./assets/logos/logo-1.png"
+          width="42"
+          height="42"
+          alt=""
+        /><span>Cult</span></a
+      >
+      <nav aria-label="Main navigation" id="navigation">
+        <a href="#cult-credential">The council</a
+        ><a href="#how-to-buy">The ritual</a><a href="#tokenomics">Tokenomics</a
+        ><a href="#cultifacts">The relics</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          class="motion-control"
+          id="motion-toggle"
+          type="button"
+          aria-pressed="false"
+          aria-label="Pause motion"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M5 3v10M11 3v10" stroke="currentColor" stroke-width="3" />
+          </svg></button
+        ><a class="header-cta" href="#share-the-seance"
+          >Enter the séance <span aria-hidden="true">↗</span></a
+        ><button
+          type="button"
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="navigation"
+        >
+          Menu <span aria-hidden="true">+</span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section id="cult-summons" class="summons">
+        <div class="hero wrap">
+          <div class="hero-copy">
+            <div class="hero-brand">
+              <span class="cult-display">Cult</span
+              ><span class="ticker-sticker">$CULT</span>
+            </div>
+            <h1>Only two must believe.<br /><span>Are you one?</span></h1>
+            <p class="hero-description">
+              The first token to proof cult.<br />Chosen by two votes in the
+              SIMD Swarm Council.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-gold magnetic" data-buy href="#how-to-buy"
+                >Buy $CULT <span aria-hidden="true">↗</span></a
+              ><a class="button button-outline" data-chart href="#cultifacts"
+                >View chart
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 17 10 11l4 3 6-9M15 5h5v5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  /></svg
+              ></a>
+            </div>
+            <p class="launch-state">
+              <span class="status-dot" aria-hidden="true"></span
+              ><span id="launch-state">launching…</span
+              ><span class="hero-chain">Ethereum</span>
+            </p>
+          </div>
+          <div class="council-stage" id="council-stage">
+            <div class="round-sticker">
+              Round <b>49783</b><span>Attendance: 2</span>
+            </div>
+            <div
+              class="council-art"
+              id="council-art"
+              role="img"
+              aria-label="Two mysterious Cult council members sit at a candlelit table. A third chair waits behind a velvet rope."
+            ></div>
+            <div class="admission-note" id="admission-note" role="status"></div>
+            <div class="council-controls">
+              <button type="button" class="admission-button" id="admission">
+                Request admission <span aria-hidden="true">↗</span>
+              </button>
+              <p>
+                Knocks: <output id="knocks">0</output>
+                <span>· this visit only</span>
+              </p>
+            </div>
+            <p class="whisper" id="whisper" aria-live="off">
+              The third chair is a formality.
+            </p>
+          </div>
+        </div>
+        <div class="hero-bottom wrap">
+          <span class="mono">49,783 rounds for two raised hands.</span
+          ><a href="#cult-credential"
+            >Read the minutes <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>$CULT ✦ Only two must believe ✦ $CULT ✦ Proof cult ✦ </span
+            ><span>$CULT ✦ Only two must believe ✦ $CULT ✦ Proof cult ✦ </span>
+          </div>
+        </div>
+        <div class="summons-intro wrap section-pad reveal">
+          <h2>Welcome to the<br />Council of Two</h2>
+          <p>
+            You stand at the threshold of crypto’s most exclusive secret
+            society. $CULT was forged in the echoing silence of almost unanimous
+            apathy: two votes, infinite legend. Some say that’s 100% consensus
+            if you ignore the rest.
+          </p>
+        </div>
+      </section>
+
+      <section id="cult-credential" class="credential section-pad">
+        <div class="wrap split-layout">
+          <div class="chalkboard reveal">
+            <div
+              id="credential-art"
+              class="scene"
+              role="img"
+              aria-label="Two chalk-drawn Cult figures on the council blackboard. Votes: 2."
+            ></div>
+            <span class="board-caption mono"
+              >The minutes are suspiciously brief.</span
+            >
+          </div>
+          <div class="section-copy reveal">
+            <h2>Proof Cult:<br />Only Two,<br /><em>Always Two</em></h2>
+            <p>
+              Other tokens need consensus; we just needed a vibe. Chiseled by
+              democracy’s bare minimum, $CULT is the first coin to introduce
+              ‘proof cult’: if you know, you know. (If you don’t, keep
+              refreshing.)
+            </p>
+            <div class="credential-facts">
+              <div><strong>2</strong><span>votes cast</span></div>
+              <span class="fact-cross" aria-hidden="true">×</span>
+              <div><strong>∞</strong><span>unanswered questions</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-to-buy" class="buy-section section-pad">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <h2>How To Become<br />One of Us <em>(Kind Of)</em></h2>
+            <p>Membership is questionable, but the buying steps are public.</p>
+          </div>
+          <div class="buy-layout">
+            <div
+              class="ritual-art scene reveal"
+              id="ritual-art"
+              role="img"
+              aria-label="Cult coins orbit a five-point ritual diagram. Candles light as you read each buying step."
+            ></div>
+            <div class="buy-guide reveal">
+              <div
+                class="step-tabs"
+                role="group"
+                aria-label="Buying guide steps"
+              >
+                <button
+                  type="button"
+                  class="step-tab active"
+                  data-step="0"
+                  aria-pressed="true"
+                >
+                  1. Wallet</button
+                ><button
+                  type="button"
+                  class="step-tab"
+                  data-step="1"
+                  aria-pressed="false"
+                >
+                  2. ETH</button
+                ><button
+                  type="button"
+                  class="step-tab"
+                  data-step="2"
+                  aria-pressed="false"
+                >
+                  3. Swap
+                </button>
+              </div>
+              <div id="step-detail" class="step-detail" aria-live="polite">
+                <h3>Get an Ethereum wallet</h3>
+                <p>
+                  Use a wallet you trust that supports Ethereum mainnet. Keep
+                  your recovery phrase private. This site never asks you to
+                  connect.
+                </p>
+              </div>
+              <ol class="ritual-copy">
+                <li>
+                  Summon Uniswap v4 with the $CULT/IMD pair (SIMD Launchpad
+                  spell optional).
+                </li>
+                <li>
+                  Whisper your ETH into the swap cauldron and trade for $CULT.
+                </li>
+                <li>
+                  Wait for the velvet rope. If it never comes, you might already
+                  be too late.
+                </li>
+              </ol>
+              <p class="help-copy">
+                The pool is paired with IMD. The live coin page supplies the
+                available swap route; keep ETH for Ethereum network fees.
+              </p>
+              <div class="contract-box">
+                <span>Contract address</span
+                ><code id="contract-address">launching…</code
+                ><button
+                  type="button"
+                  id="copy-contract"
+                  class="copy-button"
+                  disabled
+                >
+                  Copy address <span aria-hidden="true">⧉</span>
+                </button>
+              </div>
+              <p
+                class="inline-feedback"
+                id="contract-feedback"
+                role="status"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tokenomics" class="tokenomics section-pad">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <h2>Not Financial Advice<br /><em>(Or Even Math Advice)</em></h2>
+          </div>
+          <div class="token-layout">
+            <div class="token-art reveal">
+              <div
+                id="pyramid-art"
+                class="scene"
+                role="img"
+                aria-label="A pyramid of Cult coins, with only the two coins at the top glowing."
+              ></div>
+            </div>
+            <div class="token-numbers reveal">
+              <p class="supply-label">
+                Total Supply: <strong>1,000,000,000 <span>$CULT</span></strong>
+              </p>
+              <p>
+                No team tokens, no taxes, no ceremonies—just tokens, and, for
+                two people, a little immortality.
+              </p>
+              <div class="allocation">
+                <svg
+                  class="donut"
+                  viewBox="0 0 120 120"
+                  role="img"
+                  aria-label="90 percent liquidity pool, 10 percent swarm distribution"
+                >
+                  <circle class="donut-base" cx="60" cy="60" r="45" />
+                  <circle
+                    class="donut-pool"
+                    cx="60"
+                    cy="60"
+                    r="45"
+                    pathLength="100"
+                  />
+                  <text x="60" y="65" text-anchor="middle">1B</text>
+                </svg>
+                <dl>
+                  <div>
+                    <dt><i class="legend-pool"></i>90% liquidity pool</dt>
+                    <dd>900,000,000 CULT</dd>
+                  </div>
+                  <div>
+                    <dt><i class="legend-swarm"></i>10% SIMD swarm</dt>
+                    <dd>100,000,000 CULT</dd>
+                  </div>
+                </dl>
+              </div>
+              <p class="help-copy">
+                Fixed forever · 18 decimals · No owner<br />The launch factory
+                handles distribution. The pool opens at a 2,500 IMD market cap.
+                Uniswap v4 pool fee: 1.25%; CULT transfer tax: 0%.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="the-legends" class="legends section-pad">
+        <div class="wrap split-layout">
+          <div class="section-copy reveal">
+            <h2>The Chosen Two:<br />Lore <em>&amp; Non-Lore</em></h2>
+            <p>
+              Who were the two voters? Was it @0xMslm and an alt? Does cult
+              status require ritual memes? Can three join, or is blasphemy
+              strictly enforced? All legends start with bad documentation.
+            </p>
+            <details class="lore-details">
+              <summary>
+                Unseal the unofficial history <span aria-hidden="true">+</span>
+              </summary>
+              <p>
+                Deep in the labyrinthine halls of meme coin history, a shadowy
+                cabal assembled: the SIMD Swarm Council. After 49,782 rounds of
+                heated debate (and shitposting), two lone voices blessed $CULT
+                as the chosen token. Now, forever enshrined as the first token
+                to achieve 'proof cult' (that's one more than 'proof of stake',
+                if you ask us), $CULT is the meme coin for those who know.
+                Because, with only two votes, are you even allowed in? Worthless
+                or priceless, every $CULT holder wonders if they're one of the
+                chosen few... or if the real cult is the friends you made
+                blobbing through Discord. $CULT: It only takes two—everyone else
+                is just looking for the meeting room.
+              </p>
+              <p class="help-copy">
+                Lore is a joke. “Proof cult” is branding, not a consensus
+                mechanism or a membership system.
+              </p>
+            </details>
+          </div>
+          <div
+            id="tome-art"
+            class="scene tome reveal"
+            role="img"
+            aria-label="An open dusty council book, two Cult members and a question mark above an empty chair."
+          ></div>
+        </div>
+      </section>
+
+      <section id="cultifacts" class="relics section-pad">
+        <div class="wrap">
+          <div class="relics-header">
+            <div class="section-copy reveal">
+              <h2>Council Relics<br />&amp; Live <em>Ritual Numbers</em></h2>
+              <p>Relics from the historic round 49783:</p>
+              <ul class="relic-facts">
+                <li>Votes that mattered: <b>2</b></li>
+                <li>
+                  Proposed by:
+                  <a
+                    href="https://x.com/0xMslm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >@0xMslm ↗</a
+                  >
+                </li>
+                <li>Days since an outsider joined: <b>Secret</b></li>
+              </ul>
+              <p class="help-copy">
+                Your vigil: <output id="vigil-days">0</output> days since your
+                first visit in this browser.
+              </p>
+              <p>
+                All numbers update live—or remain secret, if the cult wills it.
+              </p>
+            </div>
+            <div
+              class="relic-jar scene reveal"
+              id="jar-art"
+              role="img"
+              aria-label="A glass Cult relic jar with a luminous floating number two."
+            ></div>
+          </div>
+          <div class="market-panel reveal">
+            <div class="market-heading">
+              <h3>The public record</h3>
+              <div class="data-status">
+                <span class="status-dot" aria-hidden="true"></span
+                ><span id="market-status">Awaiting the launch feed</span
+                ><button type="button" id="refresh-stats" class="text-button">
+                  Refresh <span aria-hidden="true">↻</span>
+                </button>
+              </div>
+            </div>
+            <div class="stats-grid" id="stats-grid" hidden>
+              <div data-stat="marketCap" hidden>
+                <span>Market cap</span><strong id="market-cap"></strong>
+              </div>
+              <div data-stat="priceUsd" hidden>
+                <span>Price / CULT</span><strong id="price"></strong>
+              </div>
+              <div data-stat="volume24h" hidden>
+                <span>24h volume</span><strong id="volume"></strong>
+              </div>
+            </div>
+            <p id="market-empty">
+              Market numbers appear here when the launch publishes them.
+            </p>
+          </div>
+          <div class="wall-heading reveal">
+            <h3>Evidence of questionable membership</h3>
+            <p>
+              Download eight original council relics without requesting
+              clearance.
+            </p>
+          </div>
+          <div class="meme-wall" id="meme-wall"></div>
+        </div>
+      </section>
+
+      <section id="share-the-seance" class="share-section section-pad">
+        <div class="wrap">
+          <div class="share-intro">
+            <div class="section-copy reveal">
+              <h2>Invite, But<br /><em>Only Ironically</em></h2>
+              <p>
+                Share your ‘membership’ far and wide—secret societies require
+                maximum visibility! Screenshot this site to flex your ‘proof
+                cult’ credentials and let everybody else wonder where the real
+                Discord is.
+              </p>
+              <div class="share-actions">
+                <a
+                  class="button button-gold"
+                  id="share-x"
+                  href="https://x.com/intent/tweet?text=Only%20two%20must%20believe.%20Are%20you%20one%3F%20%24CULT&url=https%3A%2F%2Fcult.si-md.xyz%2F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Share on X <span aria-hidden="true">↗</span></a
+                ><button
+                  type="button"
+                  id="copy-link"
+                  class="button button-outline"
+                >
+                  Copy link <span aria-hidden="true">⧉</span>
+                </button>
+              </div>
+              <div
+                class="share-options"
+                role="group"
+                aria-label="Choose your X post"
+              >
+                <button
+                  class="text-button selected"
+                  type="button"
+                  data-share="0"
+                  aria-pressed="true"
+                >
+                  The invitation</button
+                ><button
+                  class="text-button"
+                  type="button"
+                  data-share="1"
+                  aria-pressed="false"
+                >
+                  The alibi</button
+                ><button
+                  class="text-button"
+                  type="button"
+                  data-share="2"
+                  aria-pressed="false"
+                >
+                  The minutes
+                </button>
+              </div>
+              <p id="share-preview" class="share-preview">
+                Only two must believe. Are you one? $CULT
+              </p>
+            </div>
+            <div class="invite-wrap reveal">
+              <button
+                type="button"
+                id="open-invite"
+                class="envelope-button"
+                aria-expanded="false"
+                aria-controls="invite-card"
+              >
+                <span class="sr-only">Open the ironic council invitation</span
+                ><span
+                  class="scene"
+                  id="envelope-art"
+                  aria-hidden="true"
+                ></span>
+              </button>
+              <div id="invite-card" class="invite-card" hidden>
+                <p>Dear third member,</p>
+                <p>Your invitation has been approved by neither of us.</p>
+                <strong>Dress code: plausible deniability.</strong>
+                <p class="help-copy">
+                  A pretend invitation. No access or token rights.
+                </p>
+              </div>
+              <p class="envelope-caption">
+                Break the seal to read your questionable invitation.
+              </p>
+            </div>
+          </div>
+          <div class="meme-lab reveal">
+            <div class="lab-heading">
+              <h3>Forge your own evidence.</h3>
+              <p>Pick a relic, rewrite the minutes, and download your meme.</p>
+            </div>
+            <div class="generator-layout">
+              <div
+                id="meme-preview"
+                class="meme-preview"
+                role="img"
+                aria-label="Your Cult meme preview"
+              ></div>
+              <div class="generator-controls">
+                <label for="meme-template">The scene</label
+                ><select id="meme-template">
+                  <option value="0">The velvet rope</option>
+                  <option value="1">Proof of secrecy</option>
+                  <option value="2">You and your alt</option>
+                  <option value="3">The council rules</option>
+                  <option value="4">Secret handshake</option>
+                  <option value="5">Council survivor</option>
+                  <option value="6">The third chair</option>
+                  <option value="7">Meeting cancelled</option></select
+                ><label for="meme-top">Top text</label
+                ><input
+                  id="meme-top"
+                  type="text"
+                  maxlength="70"
+                  value="ONLY TWO MUST BELIEVE"
+                  autocomplete="off"
+                /><label for="meme-bottom">Bottom text</label
+                ><input
+                  id="meme-bottom"
+                  type="text"
+                  maxlength="70"
+                  value="I BROUGHT MY ALT"
+                  autocomplete="off"
+                />
+                <p class="help-copy">
+                  Up to 70 characters per line. Made in your browser; nothing is
+                  uploaded.
+                </p>
+                <button
+                  type="button"
+                  id="download-meme"
+                  class="button button-gold"
+                >
+                  Download PNG <span aria-hidden="true">↓</span>
+                </button>
+                <p
+                  class="inline-feedback"
+                  id="download-feedback"
+                  role="status"
+                ></p>
+              </div>
+            </div>
+          </div>
+          <div class="final-seal">
+            <span class="display">The meeting is adjourned.</span
+            ><a
+              href="https://x.com/search?q=%24CULT%20%22proof%20cult%22&src=typed_query"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Find the conversation on X <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer wrap">
+      <a class="wordmark" href="#" aria-label="Cult home"
+        ><img
+          loading="lazy"
+          decoding="async"
+          data-logo
+          src="./assets/logos/logo-1.png"
+          width="36"
+          height="36"
+          alt=""
+        /><span>Cult</span></a
+      >
+      <p>
+        Built 100% by the Identity.md swarm · launched on
+        <a
+          href="https://www.si-md.xyz/launchpad"
+          target="_blank"
+          rel="noopener noreferrer"
+          >si-md.xyz/launchpad</a
+        >
+        · not financial advice.
+      </p>
+      <a href="#main">Back to the threshold ↑</a>
+    </footer>
+    <div class="sticker-tray" id="sticker-tray">
+      <button
+        class="draggable-sticker"
+        type="button"
+        id="logo-sticker"
+        aria-label="Move the Cult sticker. Drag, or use arrow keys; Home resets."
+      >
+        <img
+          data-logo
+          src="./assets/logos/logo-1.png"
+          width="72"
+          height="72"
+          alt=""
+          draggable="false"
+        /></button
+      ><span>Drag me.<br />I’m not on the list.</span>
+    </div>
+    <div id="toast" class="toast" role="status" hidden>
+      <span id="toast-message"></span
+      ><button
+        type="button"
+        id="dismiss-toast"
+        aria-label="Dismiss notification"
+      >
+        ×
+      </button>
+    </div>
+    <noscript
+      ><p class="noscript">
+        JavaScript enables the council scene, live launch links, market data,
+        and meme downloads. You can still read the full story and launch
+        details.
+      </p></noscript
+    >
+  </body>
+</html>

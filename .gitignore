@@ -1,0 +1,8 @@
+# Path budget: .gitignore <= 256 bytes; generated directories only.
+**/node_modules/
+**/.cache/
+**/.npm/
+**/.pnpm-store/
+**/out/
+**/cache/
+/test/scratch/

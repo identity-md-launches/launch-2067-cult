@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>Cult, the eye of two</title>
+  <circle cx="256" cy="256" r="246" fill="#fde047" stroke="#16141f" stroke-width="20"/>
+  <circle cx="256" cy="256" r="207" fill="#9400d3" stroke="#16141f" stroke-width="12"/>
+  <path d="M256 65v35m0 312v35M65 256h35m312 0h35M121 121l25 25m220 220 25 25M121 391l25-25m220-220 25-25" stroke="#fde047" stroke-width="14"/>
+  <path d="M103 256q153-176 306 0-153 176-306 0Z" fill="#fde047" stroke="#16141f" stroke-width="14" stroke-linejoin="round"/>
+  <path d="m226 188 20 68-20 68-20-68Zm60 0 20 68-20 68-20-68Z" fill="#16141f"/>
+  <path d="m256 122 14 23-14 23-14-23Zm0 222 14 23-14 23-14-23Z" fill="#fde047"/>
+</svg>
